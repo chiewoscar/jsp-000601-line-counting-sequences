@@ -9,16 +9,22 @@
 - live official PR-title collision search for `JSP-000601`;
 - upstream theorem, comparator, and scope inspection.
 
-## Not claimed in this environment
+## Verified in CI
 
-A new Lean compiler run was **not** completed locally. This package does not
-claim its wrapper has already passed `lake` or `leanchecker` here.
+GitHub Actions run `35265939128` at commit
+`416fedd346f62bd5851e9203f4ad6d3e0f8cee08` completed with `"status": "pass"`:
+pinned source hashes matched, `lake build ErdosProblems.Erdos733` compiled the
+eight-module upstream proof and its transitive Util dependencies, the wrapper
+and audit compiled, axioms for `JSP000601.solution` and `Erdos733.erdos_733`
+are `[propext, Classical.choice, Quot.sound]`, and `leanchecker` replayed both
+modules.
 
-Run:
+To reproduce locally:
 
 ```bash
 python3 scripts/verify.py --clean
 ```
 
-A successful run creates `verification/generated/result.json` with
-`"status": "pass"`, source hashes, axiom closures, and replayed modules.
+Note: a fresh local run on Windows may fail inside `lake exe cache get` while
+checking out a dependency that contains a colon in a filename; the CI run on
+Ubuntu is the reference verification.
