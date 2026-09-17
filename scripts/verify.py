@@ -243,10 +243,11 @@ def verify(clean: bool, no_cache: bool) -> dict[str, object]:
     if not no_cache:
         run(["lake", "exe", "cache", "get"], workspace, "06-cache.log", env={**os.environ, "LEAN_NUM_THREADS": "1"})
 
-    idx = 7
-    for item in LOCK["upstream"]["source_files"]:
-        compile_module(workspace, item["path"], idx)
-        idx += 1
+    # Build the pinned target module through Lake so its transitive custom
+    # dependencies (e.g. the Util incidence-geometry library) are built too.
+    run(["lake", "build", LOCK["upstream"]["target_module"]], workspace,
+        "07-build-target.log", env=dict(os.environ))
+    idx = 8
 
     wrapper_name = LOCK["local"]["wrapper"]
     shutil.copy2(ROOT / wrapper_name, workspace / wrapper_name)
