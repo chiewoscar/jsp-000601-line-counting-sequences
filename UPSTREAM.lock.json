@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "problem_id": "JSP-000601",
+  "erdos_problem": 733,
+  "created_date": "2026-09-18",
+  "upstream": {
+    "repository": "https://github.com/plby/lean-proofs.git",
+    "commit": "8822f7ddef30fadbd92e1c6ab4ed897af356af5e",
+    "workspace": "src/latest",
+    "toolchain": "leanprover/lean4:v4.33.0",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "source_files": [
+      {
+        "path": "ErdosProblems/Erdos733/Counting.lean",
+        "sha256": "dd8d199d6a6bf3f734cbd1d0509216bb95e0acd8949d1b046119696f0d8d4aca"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/Defs.lean",
+        "sha256": "f62cd1df4537a2a04a6ac224adb45d31c27d441b6d8eb1117f2c6abb3cc2032c"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/RichLines.lean",
+        "sha256": "b61bad1c7432225fddf5066e170a53013d6d327d6c3da504b98dd14a3372f45c"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/AnalyticAlt.lean",
+        "sha256": "18d3ee04ab034682663be743a957914672ceccb47f51cdc033a92999055fe458"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/Analytic.lean",
+        "sha256": "1cf92caeef8bb8f6374d7b6a70a84142037a23fb23f4193475655204fdd12538"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/Encoding.lean",
+        "sha256": "96e0140647aea3c0af107518d98755ee87b71dc6507e5ab9e7098fffdd9fdb15"
+      },
+      {
+        "path": "ErdosProblems/Erdos733/BucketBounds.lean",
+        "sha256": "1db4f2b8b9eeb9e61eb6d1049a1fbd39dd522372311027c052c60b9a2ca97867"
+      },
+      {
+        "path": "ErdosProblems/Erdos733.lean",
+        "sha256": "421ebb42d2b72a9ca919e6b3266f73527c1fecddbb1585ba3ec3770aaaedc9e8"
+      }
+    ],
+    "target_module": "ErdosProblems.Erdos733",
+    "theorems": [
+      "Erdos733.erdos_733"
+    ],
+    "comparator_path": "ComparatorChallenges/ErdosProblems/Erdos733.json",
+    "comparator": {
+      "enable_nanoda": true,
+      "permitted_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "theorem_names": [
+        "Erdos733.erdos_733"
+      ]
+    }
+  },
+  "local": {
+    "wrapper": "JSP000601.lean",
+    "module": "JSP000601",
+    "theorems": [
+      "JSP000601.solution"
+    ]
+  },
+  "verification": {
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "prohibited_local_constructs": [
+      "sorry",
+      "admit",
+      "axiom declarations",
+      "native_decide",
+      "unsafe",
+      "implemented_by",
+      "Lean.ofReduceBool"
+    ]
+  }
+}
